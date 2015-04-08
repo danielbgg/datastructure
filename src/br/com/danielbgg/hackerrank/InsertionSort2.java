@@ -18,7 +18,6 @@ public class InsertionSort2 {
 		if (ar.length == 1) {
 			return;
 		}
-
 		int target = ar[lenght - 1];
 		for (int i = lenght - 2; i >= 0; i--) {
 			int value = ar[i];
@@ -29,7 +28,6 @@ public class InsertionSort2 {
 				return;
 			}
 		}
-
 		if (target < ar[0]) {
 			ar[0] = target;
 		}
