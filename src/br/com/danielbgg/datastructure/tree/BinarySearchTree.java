@@ -11,6 +11,14 @@ public class BinarySearchTree {
 
 	public BinarySearchTree() {
 	}
+	
+	protected BinaryNode getRoot() {
+		return root;
+	}
+	
+	protected void setRoot(BinaryNode root) {
+		this.root = root;
+	}
 
 	public boolean insert(Integer data) {
 		if (data == null) {

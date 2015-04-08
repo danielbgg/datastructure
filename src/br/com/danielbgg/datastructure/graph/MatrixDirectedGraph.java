@@ -83,13 +83,9 @@ public class MatrixDirectedGraph {
 	}
 
 	private void showAllDFT(int firstVertex) {
+		resetPush();
 		int v;
 		Stack<Integer> stack = new Stack<Integer>();
-		for (int i = 0; i < numberOfVertices; i++) {
-			if (vertex[i] != null) {
-				vertex[i].setPushed(false);
-			}
-		}
 		stack.push(firstVertex);
 		vertex[firstVertex].setPushed(true);
 		while (!stack.empty()) {
@@ -105,13 +101,9 @@ public class MatrixDirectedGraph {
 	}
 
 	private void showAllBFT(int firstVertex) {
+		resetPush();
 		int v;
 		Queue<Integer> queue = new LinkedBlockingQueue<Integer>();
-		for (int i = 0; i < numberOfVertices; i++) {
-			if (vertex[i] != null) {
-				vertex[i].setPushed(false);
-			}
-		}
 		queue.add(firstVertex);
 		vertex[firstVertex].setPushed(true);
 		while (!queue.isEmpty()) {
@@ -124,6 +116,66 @@ public class MatrixDirectedGraph {
 				}
 			}
 		}
+	}
+
+	public int[][] transitiveClosure(int n, int adjacency[][]) {
+		int t[][] = cloneArray(n, adjacency);
+		for (int b = 0; b < n; b++) {
+			for (int c = 0; c < n; c++) {
+				if (t[b][c] == 1) {
+					for (int a = 0; a < n; a++) {
+						if (t[a][b] == 1 && a != c) {
+							t[a][c] = 1;
+						}
+					}
+				}
+			}
+		}
+		return t;
+	}
+
+	private int[][] cloneArray(int n, int adjacency[][]) {
+		int t[][] = new int[n][n];
+		for (int row = 0; row < n; row++) {
+			for (int col = 0; col < n; col++) {
+				t[row][col] = adjacency[row][col];
+			}
+		}
+		return t;
+	}
+
+	private void resetPush() {
+		for (int i = 0; i < numberOfVertices; i++) {
+			if (vertex[i] != null) {
+				vertex[i].setPushed(false);
+			}
+		}
+	}
+
+	// A graph's spanning tree is a tree that contains all of the vertices of
+	// the graph connected by a subset of the graph's edges. The edges are
+	// chosen such that is there is a path from each vertex to every other
+	// vertex, and (since it is a tree) there are no cycles.
+	public int[][] spanningTreeUnidirected(int firstVertex) {
+		resetPush();
+		int st[][] = new int[max][max];
+		int v;
+		Stack<Integer> stack = new Stack<Integer>();
+		stack.push(firstVertex);
+		vertex[firstVertex].setPushed(true);
+		while (!stack.empty()) {
+			v = stack.pop();
+			visit(vertex[v]);
+			for (int j = 0; j < numberOfVertices; j++) {
+				if (edge[v][j] == 1 && !vertex[j].getPushed()) {
+					stack.push(j);
+					vertex[j].setPushed(true);
+					st[v][j] = 1;
+					st[j][v] = 1;
+				}
+			}
+		}
+		return st;
 	}
 
 	public static void main(String[] args) {
@@ -151,6 +203,29 @@ public class MatrixDirectedGraph {
 
 		flyUS.showAll(TraversalType.DEPTH_FIRST_TRAVERSAL, 0);
 		flyUS.showAll(TraversalType.BREADTH_FIRST_TRAVERSAL, 0);
+
+		int a[][] = new int[5][5];
+		a[0][1] = 1;
+		a[0][3] = 1;
+		a[1][2] = 1;
+		a[1][3] = 1;
+		a[3][4] = 1;
+		a[4][0] = 1;
+		a[4][3] = 1;
+		int t[][] = flyUS.transitiveClosure(5, a);
+		for (int row = 0; row < 5; row++) {
+			System.out.println();
+			for (int col = 0; col < 5; col++)
+				System.out.print(t[row][col] + " ");
+		}
+
+		t = flyUS.spanningTreeUnidirected(0);
+		for (int row = 0; row < 5; row++) {
+			System.out.println();
+			for (int col = 0; col < 5; col++)
+				System.out.print(t[row][col] + " ");
+		}
+
 	}
 
 }
