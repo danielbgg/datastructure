@@ -3,13 +3,9 @@ package br.com.danielbgg.datastructure.tree;
 public class AVLTree extends BinarySearchTree {
 
 	public BinaryNode rotateRight(BinaryNode oldRoot) {
-		//old root = 6
 		BinaryNode newRoot = oldRoot.getLeftChild();
-		//new root = 4
 		oldRoot.setLeftChild(newRoot.getRightChild());
-		//old root = 6, left child = 5
 		newRoot.setRightChild(oldRoot);
-		//new root = 4, right child = 6
 		return newRoot;
 	}
 
