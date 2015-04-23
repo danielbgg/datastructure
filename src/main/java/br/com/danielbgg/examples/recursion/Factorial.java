@@ -40,8 +40,8 @@ public class Factorial {
 	}
 
 	public static void main(String[] args) {
-		System.out.println(nFactorial(10));
-		System.out.println(Arrays.toString(allFactorials(10)));
+		System.out.println(nFactorial(5));
+		//System.out.println(Arrays.toString(allFactorials(10)));
 	}
 
 }
