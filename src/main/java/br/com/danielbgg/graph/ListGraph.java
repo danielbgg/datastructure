@@ -6,11 +6,14 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
 
-public class AdjacencyListGraph {
+/**
+ * Adjacency List Graph
+ */
+public class ListGraph {
 
 	private HashMap<Vertex, LinkedList<Vertex>> map;
 
-	public AdjacencyListGraph() {
+	public ListGraph() {
 		this.map = new HashMap<Vertex, LinkedList<Vertex>>();
 	}
 
@@ -27,18 +30,12 @@ public class AdjacencyListGraph {
 		ll.add(e.getV());
 	}
 
-	public void resetVertices() {
-		Set<Vertex> s = map.keySet();
-		for (Iterator<Vertex> iterator = s.iterator(); iterator.hasNext();) {
-			Vertex vv = (Vertex) iterator.next();
-			vv.setColor(Vertex.COLOR_WHITE);
-			vv.setD(Integer.MAX_VALUE);
-			vv.setParent(null);
-		}
-	}
-
 	public List<Vertex> getAdjacencyList(Vertex v) {
 		return (LinkedList<Vertex>) map.get(v);
+	}
+
+	public Set<Vertex> getAllVertices() {
+		return map.keySet();
 	}
 
 	public String toString() {

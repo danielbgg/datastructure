@@ -4,18 +4,18 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 
-public class BreadthFirstSearchTest extends TestCase {
+public class BFSTest extends TestCase {
 
-	public BreadthFirstSearchTest(String testName) {
+	public BFSTest(String testName) {
 		super(testName);
 	}
 
 	public static Test suite() {
-		return new TestSuite(BreadthFirstSearchTest.class);
+		return new TestSuite(BFSTest.class);
 	}
 
 	public void testApp() {
-		AdjacencyListGraph g = new AdjacencyListGraph();
+		ListGraph g = new ListGraph();
 
 		Vertex v1 = new Vertex("1");
 		Vertex v2 = new Vertex("2");
@@ -44,10 +44,12 @@ public class BreadthFirstSearchTest extends TestCase {
 		g.addEdge(new Edge(v5, v2));
 		g.addEdge(new Edge(v5, v4));
 
-		System.out.println(g);
-		
-		BreadthFirstSearch bfs = new BreadthFirstSearch(g);
-		bfs.execute(v1);
+		BFS bfs = new BFS(g);
+		assertEquals(2, bfs.bfs(v1));
+		assertEquals(v1, bfs.bfs(v1, v1).getVertex());
+		assertEquals(v4, bfs.bfs(v1, v4).getVertex());
+		assertNull(bfs.bfs(v1, new Vertex("Test 1")));
+		assertNotSame(v3, bfs.bfs(v1, v4).getVertex());
 	}
 
 }

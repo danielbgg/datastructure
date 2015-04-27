@@ -1,4 +1,4 @@
-package br.com.danielbgg.interview.google;
+package br.com.danielbgg.interview.google.subtree;
 
 public class Node {
 

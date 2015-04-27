@@ -1,4 +1,4 @@
-package br.com.danielbgg.interview.amazon;
+package br.com.danielbgg.interview.amazon.robot;
 
 public class Command {
 

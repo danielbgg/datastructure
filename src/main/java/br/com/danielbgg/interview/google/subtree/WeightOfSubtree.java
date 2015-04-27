@@ -1,4 +1,4 @@
-package br.com.danielbgg.interview.google;
+package br.com.danielbgg.interview.google.subtree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,7 +6,7 @@ import java.util.List;
 /*
  * http://www.careercup.com/question?id=5648527329853440
  */
-public class InterviewGoogle {
+public class WeightOfSubtree {
 
 	public static void main(String[] args) {
 		List<Node> l = new ArrayList<Node>();
@@ -15,7 +15,7 @@ public class InterviewGoogle {
 		l.add(new Node(20, 30, 2));
 		l.add(new Node(40, 20, 5));
 
-		InterviewGoogle eg = new InterviewGoogle();
+		WeightOfSubtree eg = new WeightOfSubtree();
 		System.out.println(eg.getSubTreeWeight(l, 10));
 		System.out.println(eg.getSubTreeWeight(l, 30));
 		System.out.println(eg.getSubTreeWeight(l, 20));
