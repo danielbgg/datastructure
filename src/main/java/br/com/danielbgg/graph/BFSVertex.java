@@ -48,10 +48,10 @@ public class BFSVertex {
 	}
 
 	public String toString() {
-		StringBuilder sb = new StringBuilder("- This is vertex: " + vertex.getDescription() + "\n");
-		sb.append("  - Color: " + color + "\n");
-		sb.append("  - Dimension: " + d + "\n");
-		sb.append("  - Parent: " + (parent == null ? null : parent.getVertex().getDescription()) + "\n");
+		StringBuilder sb = new StringBuilder("- This is vertex: " + vertex.getDescription());
+		sb.append("  - Color: " + color);
+		sb.append("  - Dimension: " + d);
+		sb.append("  - Parent: " + (parent == null ? null : parent.getVertex().getDescription()));
 		return sb.toString();
 	}
 

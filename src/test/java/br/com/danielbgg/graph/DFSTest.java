@@ -1,7 +1,7 @@
 package br.com.danielbgg.graph;
 
 import java.util.Iterator;
-import java.util.LinkedList;
+import java.util.List;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
@@ -17,7 +17,7 @@ public class DFSTest extends TestCase {
 		return new TestSuite(DFSTest.class);
 	}
 
-	public void testApp() {
+	public void testDFS() {
 		ListGraph g = new ListGraph();
 
 		Vertex s = new Vertex("s");
@@ -52,10 +52,11 @@ public class DFSTest extends TestCase {
 		g.addEdge(new Edge(u, v));
 		g.addEdge(new Edge(u, t));
 
+		System.out.println("\n----------------------- DFS G");
 		DFS dfs = new DFS(g);
 		dfs.dfs();
 	}
-	
+
 	public void testTopologicalSort() {
 		ListGraph g = new ListGraph();
 
@@ -69,15 +70,15 @@ public class DFSTest extends TestCase {
 		Vertex shoes = new Vertex("shoes");
 		Vertex watch = new Vertex("watch");
 
-		g.addVertex(undershorts);
-		g.addVertex(pants);
-		g.addVertex(belt);
 		g.addVertex(shirt);
 		g.addVertex(tie);
 		g.addVertex(jacket);
-		g.addVertex(socks);
-		g.addVertex(shoes);
+		g.addVertex(belt);
 		g.addVertex(watch);
+		g.addVertex(undershorts);
+		g.addVertex(pants);
+		g.addVertex(shoes);
+		g.addVertex(socks);
 
 		g.addEdge(new Edge(undershorts, pants));
 		g.addEdge(new Edge(undershorts, shoes));
@@ -89,14 +90,72 @@ public class DFSTest extends TestCase {
 		g.addEdge(new Edge(tie, jacket));
 		g.addEdge(new Edge(pants, shoes));
 
+		System.out.println("\n----------------------- DFS G");
 		DFS dfs = new DFS(g);
 		dfs.dfs();
-		System.out.println("----------------------- Topological Sort");
-		LinkedList<DFSVertex> ll = dfs.getTopologicalSort();
-		for (Iterator iterator = ll.iterator(); iterator.hasNext();) {
-	        DFSVertex v = (DFSVertex) iterator.next();
-	        System.out.println(v);
-        }
+
+		System.out.println("\n----------------------- Topological Sort G");
+		printList(dfs.getTopologicalSort());
+	}
+
+	public void testStronglyConnectedComponents() {
+		ListGraph g = new ListGraph();
+
+		Vertex a = new Vertex("a");
+		Vertex b = new Vertex("b");
+		Vertex c = new Vertex("c");
+		Vertex d = new Vertex("d");
+		Vertex e = new Vertex("e");
+		Vertex f = new Vertex("f");
+		Vertex gg = new Vertex("g");
+		Vertex h = new Vertex("h");
+
+		g.addVertex(a);
+		g.addVertex(b);
+		g.addVertex(c);
+		g.addVertex(d);
+		g.addVertex(e);
+		g.addVertex(f);
+		g.addVertex(gg);
+		g.addVertex(h);
+
+		g.addEdge(new Edge(a, b));
+		g.addEdge(new Edge(b, e));
+		g.addEdge(new Edge(e, a));
+		g.addEdge(new Edge(e, f));
+		g.addEdge(new Edge(b, f));
+		g.addEdge(new Edge(b, c));
+		g.addEdge(new Edge(f, gg));
+		g.addEdge(new Edge(gg, f));
+		g.addEdge(new Edge(c, gg));
+		g.addEdge(new Edge(c, d));
+		g.addEdge(new Edge(d, c));
+		g.addEdge(new Edge(d, h));
+		g.addEdge(new Edge(gg, h));
+		g.addEdge(new Edge(h, h));
+
+		System.out.println("\n----------------------- DFS G");
+		DFS dfs = new DFS(g);
+		dfs.dfs();
+
+		System.out.println("\n----------------------- Map G");
+		System.out.println(g);
+
+		System.out.println("\n----------------------- Map G Transposed");
+		ListGraph gT = g.transpose();
+		System.out.println(gT);
+		
+		System.out.println("\n----------------------- DFS G Transposed");
+		DFS dfsGT = new DFS(gT);
+		dfsGT.dfs(dfs.getListOfDecreasingF());
+		
+	}
+
+	
+	private void printList(List<?> l) {
+		for (Iterator<?> iterator = l.iterator(); iterator.hasNext();) {
+			System.out.println(iterator.next());
+		}
 	}
 
 }

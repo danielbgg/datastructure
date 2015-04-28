@@ -1,5 +1,9 @@
 package br.com.danielbgg.graph;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -36,10 +40,28 @@ public class DFS {
 		}
 	}
 
+	public List<Vertex> getListOfDecreasingF() {
+		List<DFSVertex> l = new ArrayList<DFSVertex>(map.values());
+		Collections.sort(l, new Comparator<DFSVertex>() {
+			public int compare(DFSVertex o1, DFSVertex o2) {
+				return new Integer(o2.getF()).compareTo(new Integer(o1.getF()));
+			}
+		});
+		List<Vertex> ll = new ArrayList<Vertex>();
+		for (Iterator<DFSVertex> iterator = l.iterator(); iterator.hasNext();) {
+			ll.add(iterator.next().getVertex());
+		}
+		return ll;
+	}
+
 	public void dfs() {
+		dfs(null);
+	}
+
+	public void dfs(Collection<Vertex> decreasingF) {
 		resetVertices();
 		time = 0;
-		Set<Vertex> s = g.getAllVertices();
+		Collection<Vertex> s = (decreasingF != null ? decreasingF : g.getAllVertices());
 		for (Iterator<Vertex> iterator = s.iterator(); iterator.hasNext();) {
 			Vertex v = (Vertex) iterator.next();
 			DFSVertex du = map.get(v);
@@ -54,7 +76,7 @@ public class DFS {
 	}
 
 	private void dfsVisit(DFSVertex du) {
-		//System.out.println("visiting: " + du.getVertex().getDescription());
+		System.out.println("Visiting: " + du.getVertex().getDescription());
 		du.setD(++time);
 		du.setColor(DFSVertex.COLOR_GRAY);
 		List<Vertex> ll = g.getAdjacencyList(du.getVertex());
@@ -68,7 +90,7 @@ public class DFS {
 		du.setColor(DFSVertex.COLOR_BLACK);
 		du.setF(++time);
 		topologicalSort.add(0, du);
-		//System.out.println("finished visiting: " + du);
+		System.out.println("Finished visiting: " + du);
 	}
 
 }

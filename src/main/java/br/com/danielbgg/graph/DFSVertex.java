@@ -57,11 +57,11 @@ public class DFSVertex {
 	}
 
 	public String toString() {
-		StringBuilder sb = new StringBuilder("- This is vertex: " + vertex.getDescription() + "\n");
-		sb.append("  - Color: " + color + "\n");
-		sb.append("  - First discovered: " + d + "\n");
-		sb.append("  - Finishes examining: " + f + "\n");
-		sb.append("  - Parent: " + (parent == null ? null : parent.getVertex().getDescription()) + "\n");
+		StringBuilder sb = new StringBuilder("- This is vertex: " + vertex.getDescription());
+		sb.append("  - Color: " + color);
+		sb.append("  - First discovered: " + d);
+		sb.append("  - Finishes examining: " + f);
+		sb.append("  - Parent: " + (parent == null ? null : parent.getVertex().getDescription()));
 		return sb.toString();
 	}
 
