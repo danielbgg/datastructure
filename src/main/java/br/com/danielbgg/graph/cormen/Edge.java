@@ -1,4 +1,4 @@
-package br.com.danielbgg.graph.list;
+package br.com.danielbgg.graph.cormen;
 
 public class Edge {
 

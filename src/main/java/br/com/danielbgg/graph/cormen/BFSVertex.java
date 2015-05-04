@@ -1,10 +1,10 @@
-package br.com.danielbgg.graph.list;
+package br.com.danielbgg.graph.cormen;
 
 /**
  * Decorator class to encapsulate and to extand some behavior of Vertices in use
- * for DFS.
+ * for BFS.
  */
-public class DFSVertex {
+public class BFSVertex {
 
 	public static int COLOR_WHITE = 10;
 	public static int COLOR_GRAY = 20;
@@ -13,10 +13,9 @@ public class DFSVertex {
 	private Vertex vertex;
 	private int color;
 	private int d;
-	private int f;
-	private DFSVertex parent;
+	private BFSVertex parent;
 
-	public DFSVertex(Vertex vertex) {
+	public BFSVertex(Vertex vertex) {
 		this.vertex = vertex;
 	}
 
@@ -40,27 +39,18 @@ public class DFSVertex {
 		this.d = d;
 	}
 
-	public int getF() {
-		return f;
-	}
-
-	public void setF(int f) {
-		this.f = f;
-	}
-
-	public DFSVertex getParent() {
+	public BFSVertex getParent() {
 		return parent;
 	}
 
-	public void setParent(DFSVertex parent) {
+	public void setParent(BFSVertex parent) {
 		this.parent = parent;
 	}
 
 	public String toString() {
 		StringBuilder sb = new StringBuilder("- This is vertex: " + vertex.getDescription());
 		sb.append("  - Color: " + color);
-		sb.append("  - First discovered: " + d);
-		sb.append("  - Finishes examining: " + f);
+		sb.append("  - Dimension: " + d);
 		sb.append("  - Parent: " + (parent == null ? null : parent.getVertex().getDescription()));
 		return sb.toString();
 	}
@@ -81,7 +71,7 @@ public class DFSVertex {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		DFSVertex other = (DFSVertex) obj;
+		BFSVertex other = (BFSVertex) obj;
 		if (vertex.getDescription() == null) {
 			if (other.vertex.getDescription() != null)
 				return false;

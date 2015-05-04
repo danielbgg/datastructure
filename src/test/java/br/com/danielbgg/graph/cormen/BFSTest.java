@@ -1,9 +1,9 @@
-package br.com.danielbgg.graph.list;
+package br.com.danielbgg.graph.cormen;
 
-import br.com.danielbgg.graph.list.BFS;
-import br.com.danielbgg.graph.list.Edge;
-import br.com.danielbgg.graph.list.ListGraph;
-import br.com.danielbgg.graph.list.Vertex;
+import br.com.danielbgg.graph.cormen.BFS;
+import br.com.danielbgg.graph.cormen.Edge;
+import br.com.danielbgg.graph.cormen.ListGraph;
+import br.com.danielbgg.graph.cormen.Vertex;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

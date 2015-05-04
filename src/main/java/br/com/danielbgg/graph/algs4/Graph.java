@@ -1,4 +1,4 @@
-package br.com.danielbgg.graph.matrix;
+package br.com.danielbgg.graph.algs4;
 
 import edu.princeton.cs.algs4.Bag;
 import edu.princeton.cs.algs4.In;
@@ -7,6 +7,8 @@ public class Graph {
 
 	private final int V;
 	private int E;
+	
+	//adjacent list of integers
 	private Bag<Integer>[] adj;
 
 	public Graph(int V) {
@@ -28,11 +30,11 @@ public class Graph {
 		}
 	}
 
-	public int getV() {
+	public int V() {
 		return V;
 	}
 
-	public int getE() {
+	public int E() {
 		return E;
 	}
 
@@ -70,7 +72,7 @@ public class Graph {
 
 	public static int maxDegree(Graph G) {
 		int max = 0;
-		for (int i = 0; i < G.getV(); i++) {
+		for (int i = 0; i < G.V(); i++) {
 			int val = degree(G, i);
 			if (val > max) {
 				max = val;
@@ -80,12 +82,12 @@ public class Graph {
 	}
 
 	public static int avgDegree(Graph G) {
-		return 2 * G.getE() / G.getV();
+		return 2 * G.E() / G.V();
 	}
 
 	public static int numberOfSelfLoops(Graph G) {
 		int count = 0;
-		for (int v = 0; v < G.getV(); v++) {
+		for (int v = 0; v < G.V(); v++) {
 			for (int w : G.adj(v)) {
 				if (v == w) {
 					count++;
