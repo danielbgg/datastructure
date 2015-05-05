@@ -2,6 +2,13 @@ package br.com.danielbgg.digraph.algs4;
 
 import java.util.Stack;
 
+/**
+ * single-source directed paths
+ * 
+ * Single-source directed paths. Given a digraph and a source vertex s, support
+ * queries of the form Is there a directed path from s to a given target vertex
+ * v? If so, find such a path.
+ */
 public class DepthFirstDirectedPaths {
 
 	// has dfs been called for this vertex?

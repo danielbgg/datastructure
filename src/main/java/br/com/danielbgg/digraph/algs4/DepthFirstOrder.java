@@ -4,6 +4,26 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+/**
+ * depth-first vertex orders
+ * 
+ * This class enables clients to iterate through the vertices in various orders
+ * defined by depth-first search. This ability is very useful in the development
+ * of advanced digraph-processing algorithms, because the recursive nature of
+ * the search enables us to prove properties of the computation (see, for
+ * example, Proposition F).
+ * 
+ * Proposition E. A digraph has a topological order if and only if it is a DAG.
+ * Proof: If the digraph has a directed cycle, it has no topological order.
+ * Conversely, the algorithm that we are about to examine computes a topological
+ * order for any given DAG.
+ * 
+ * Preorder : Put the vertex on a queue before the recursive calls.
+ * 
+ * Postorder : Put the vertex on a queue after the recursive calls.
+ * 
+ * Reverse postorder : Put the vertex on a stack after the recursive calls.
+ */
 public class DepthFirstOrder {
 
 	private boolean[] marked;

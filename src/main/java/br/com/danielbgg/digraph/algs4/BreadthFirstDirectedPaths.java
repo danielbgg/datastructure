@@ -4,6 +4,14 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
+/**
+ * single-source shortest directed paths
+ * 
+ * Single-source shortest directed paths. Given a digraph and a source vertex s,
+ * support queries of the form Is there a directed path from s to a given target
+ * vertex v? If so, find a shortest such path (one with a minimal number of
+ * edges).
+ */
 public class BreadthFirstDirectedPaths {
 
 	// is a shortest path to this vertex known?

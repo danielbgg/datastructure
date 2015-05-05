@@ -2,6 +2,19 @@ package br.com.danielbgg.digraph.algs4;
 
 import java.util.Stack;
 
+/**
+ * directed cycle detection
+ * 
+ * This class adds to our standard recursive dfs() a boolean array onStack[] to
+ * keep track of the vertices for which the recursive call has not completed.
+ * When it finds an edge v->w to a vertex w that is on the stack, it has
+ * discovered a directed cycle, which it can recover by following edgeTo[]
+ * links.
+ * 
+ * Directed cycle detection. Does a given digraph have a directed cycle? If so,
+ * find the vertices on some such cycle, in order from some vertex back to
+ * itself.
+ */
 public class DirectedCycle {
 
 	private boolean[] marked;

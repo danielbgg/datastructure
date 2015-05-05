@@ -1,5 +1,24 @@
 package br.com.danielbgg.digraph.algs4;
 
+/**
+ * single- and multiple-source reachability
+ * 
+ * This implementation of depth-first search provides clients the ability to
+ * test which vertices are reachable from a given vertex or a given set of
+ * vertices.
+ * 
+ * Single-source reachability. Given a digraph and a source vertex s, support
+ * queries of the form Is there a directed path from s to a given target vertex
+ * v?
+ * 
+ * Multiple-source reachability. Given a digraph and a set of source vertices,
+ * support queries of the form Is there a directed path from any vertex in the
+ * set to a given target vertex v?
+ * 
+ * Proposition D. DFS marks all the vertices in a digraph reachable from a given
+ * set of sources in time proportional to the sum of the outdegrees of the
+ * vertices marked.
+ */
 public class DirectedDFS {
 
 	private boolean[] marked;

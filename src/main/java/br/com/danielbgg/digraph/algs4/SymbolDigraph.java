@@ -3,6 +3,10 @@ package br.com.danielbgg.digraph.algs4;
 import edu.princeton.cs.algs4.In;
 import edu.princeton.cs.algs4.ST;
 
+/**
+ * Symbolic names. It is also a simple matter to allow clients to use symbolic
+ * names in digraph applications.
+ */
 public class SymbolDigraph {
 
 	// String -> index
