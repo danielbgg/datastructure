@@ -3,10 +3,10 @@ package br.com.danielbgg.graph.cormen;
 import java.util.Iterator;
 import java.util.List;
 
-import br.com.danielbgg.graph.cormen.DFS;
-import br.com.danielbgg.graph.cormen.Edge;
-import br.com.danielbgg.graph.cormen.ListGraph;
-import br.com.danielbgg.graph.cormen.Vertex;
+import br.com.danielbgg.cormen.graph.DFS;
+import br.com.danielbgg.cormen.graph.Edge;
+import br.com.danielbgg.cormen.graph.ListGraph;
+import br.com.danielbgg.cormen.graph.Vertex;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
