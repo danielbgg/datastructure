@@ -1,4 +1,4 @@
-package br.com.danielbgg.interview.amazon.robot;
+package br.com.danielbgg.interview.amazon.robot2;
 
 
 /**

@@ -1,0 +1,10 @@
+package book.ctci.chapter03.q3;
+
+public class Node {
+	public Node above;
+	public Node below;
+	public int value;
+	public Node(int value) {
+		this.value = value;
+	}
+}

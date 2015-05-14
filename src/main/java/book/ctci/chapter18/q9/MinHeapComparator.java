@@ -1,0 +1,12 @@
+package book.ctci.chapter18.q9;
+
+import java.util.Comparator;
+
+public class MinHeapComparator implements Comparator<Integer>{
+	// Comparator that sorts integers from lowest to highest
+	public int compare(Integer o1, Integer o2) {
+		if (o1 > o2) return 1;
+		else if (o1 == o2)	return 0;
+		else return -1;
+	}
+}
