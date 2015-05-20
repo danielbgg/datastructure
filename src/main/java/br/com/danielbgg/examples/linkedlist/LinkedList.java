@@ -69,7 +69,15 @@ public class LinkedList {
 			return head.getValue();
 		}
 	}
+	
+	public Element<Object> getHead() {
+		return head;
+	}
 
+	public Element<Object> getTail() {
+		return tail;
+	}
+	
 	public Object fetch(Object data) {
 		Element<Object> elem = head;
 		while (elem != null) {
